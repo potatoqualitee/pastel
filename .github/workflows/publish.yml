@@ -1,0 +1,17 @@
+name: Publish
+on: [workflow_dispatch]
+defaults:
+  run:
+    shell: pwsh
+jobs:
+    build:
+      name: Build
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v1
+        - name: Build
+          run: ./build.ps1
+        - name: Publish
+          run: ./publish.ps1
+          env:
+            NUGETAPIKEY: ${{ secrets.NUGETAPIKEY }}
