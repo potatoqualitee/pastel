@@ -52,7 +52,7 @@ For example, the `Get-LogonSession` cmdlet is defined using this hashtable.
     }
     OutputHandlers          = @{
         ParameterSetName = "Default"
-        Handler          = {$true}
+        Handler          = {$true} # My workaround to bypass handlers which can destroy pastel output
         HandlerType      = "Inline"
         StreamOutput     = $false
     }
