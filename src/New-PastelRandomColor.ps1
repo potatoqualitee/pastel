@@ -22,7 +22,7 @@
         ParameterSetName                = "Default"
     },
     @{
-        ParameterType                   = "string"
+        ParameterType                   = "int"
         Name                            = "Number"
         OriginalName                    = '--number'
         Description                     = "Number of colors to generate. Default is 10."
