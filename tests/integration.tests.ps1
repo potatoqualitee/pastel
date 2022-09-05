@@ -21,6 +21,16 @@ Describe "New-PastelRandomColor" {
     }
 }
 
+Describe "Get-PastelDistinctColor" {
+    It "should work without throwing" {
+        Get-PastelDistinctColor -Count 2 -Metric CIEDE2000 white | Should -not -BeNullOrEmpty
+    }
+    It "should work" {
+        (Get-PastelDistinctColor black -Count 5 -Metric CIE76 | Measure-Object).Count | Should -Be 5
+    }
+}
+
+
 Describe "Module functionality" {
     It "should have added pastel to the path" {
         pastel color white | Should -Match hsl
