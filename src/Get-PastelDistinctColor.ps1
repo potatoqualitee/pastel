@@ -13,8 +13,8 @@ The default parameters for the optimization procedure (simulated annealing) shou
         Name                            = "Metric"
         OriginalName                    = '--metric'
         Description                     = "Distance metric to compute mutual color distances. The CIEDE2000 is more accurate, but also much slower."
-        ValueFromPipeline               = "False"
-        ValueFromPipelineByPropertyName = "True"
+        ValueFromPipeline               = $false
+        ValueFromPipelineByPropertyName = $true
         AdditionalParameterAttributes   = '[ValidateSet("CIEDE2000", "CIE76")]'
         Position                        = 0
         ParameterSetName                = "Default"
@@ -24,8 +24,8 @@ The default parameters for the optimization procedure (simulated annealing) shou
         Name                            = "Count"
         OriginalName                    = ''
         Description                     = "Number of distinct colors in the set. Default is 10."
-        ValueFromPipeline               = "False"
-        ValueFromPipelineByPropertyName = "True"
+        ValueFromPipeline               = $false
+        ValueFromPipelineByPropertyName = $true
         Position                        = 1
         ParameterSetName                = "Default"
     },
@@ -49,8 +49,8 @@ The default parameters for the optimization procedure (simulated annealing) shou
               - '#77889980'
               - 'rgba(119, 136, 153, 0.5)'
               - 'hsla(210, 14.3%, 53.3%, 50%)'"
-        ValueFromPipeline               = "True"
-        ValueFromPipelineByPropertyName = "True"
+        ValueFromPipeline               = $true
+        ValueFromPipelineByPropertyName = $true
         Position                        = 2
         ParameterSetName                = "Default"
     }

@@ -15,8 +15,8 @@
                rgb:      samples uniformly in RGB space
                gray:     random gray tone (uniform)
                lch_hue:  random hue, fixed lightness and chroma"
-        ValueFromPipeline               = "True"
-        ValueFromPipelineByPropertyName = "True"
+        ValueFromPipeline               = $true
+        ValueFromPipelineByPropertyName = $true
         AdditionalParameterAttributes   = '[ValidateSet("vivid", "rgb", "gray", "lch_hue")]'
         Position                        = 0
         ParameterSetName                = "Default"
@@ -26,8 +26,8 @@
         Name                            = "Number"
         OriginalName                    = '--number'
         Description                     = "Number of colors to generate. Default is 10."
-        ValueFromPipeline               = "False"
-        ValueFromPipelineByPropertyName = "True"
+        ValueFromPipeline               = $false
+        ValueFromPipelineByPropertyName = $true
         Position                        = 1
         ParameterSetName                = "Default"
     }

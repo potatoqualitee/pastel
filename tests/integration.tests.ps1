@@ -1,8 +1,8 @@
 Import-Module "$PSScriptRoot\..\module\pastel.psd1" -Force
 
-Describe "Get-PastelColorDetail" {
+Describe "Get-PastelColor" {
     It "should have command" {
-        Get-Command Get-PastelColorDetail | Should -not -BeNullOrEmpty
+        Get-Command Get-PastelColor | Should -not -BeNullOrEmpty
     }
 }
 

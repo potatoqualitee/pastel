@@ -10,9 +10,9 @@
         Name                            = "Sort"
          OriginalName                   = '--sort'
         Description                     = "Sort order [default: hue] [possible values: brightness, luminance, hue, chroma, random]"
-        Mandatory                       = "False"
-        ValueFromPipeline               = "True"
-        ValueFromPipelineByPropertyName = "True"
+        Mandatory                       = $false
+        ValueFromPipeline               = $true
+        ValueFromPipelineByPropertyName = $true
         AdditionalParameterAttributes   = '[ValidateSet("brightness", "luminance", "hue", "chroma", "random")]'
         Position                        = 0
         ParameterSetName                = "Default"

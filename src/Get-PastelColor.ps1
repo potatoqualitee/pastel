@@ -1,23 +1,23 @@
 
 @{
     Verb                    = "Get"
-    Noun                    = "PastelColorDetail"
+    Noun                    = "PastelColor"
     OriginalName            = "pastel"
     OriginalCommandElements = "color"
     Synopsis                = "Get information about a color"
     Description             = "Get information about a color"
     Parameters              = @{
-        ParameterType                   = "string"
+        ParameterType                   = "string[]"
         Name                            = "Color"
         Description                     = "Show and display some information about the given color(s)."
-        Mandatory                       = "True"
-        ValueFromPipeline               = "True"
-        ValueFromPipelineByPropertyName = "True"
+        Mandatory                       = $true
+        ValueFromPipeline               = $true
+        ValueFromPipelineByPropertyName = $true
         Position                        = 0
         ParameterSetName                = "Default"
     }
     Examples = @{
-        Command         = "Get-PastelColorDetail -Color blue"
+        Command         = "Get-PastelColor -Color blue"
         OriginalCommand = "pastel color blue"
         Description     = "Show and display some information about the given color(s)"
     }

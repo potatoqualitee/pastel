@@ -44,49 +44,49 @@ $Commands = Get-ChildItem "$PSScriptRoot\src" | ForEach-Object {
     if ($Definition.Parameters) {
         $Command.Parameters = $Definition.Parameters | ForEach-Object {
             $Parameter = New-ParameterInfo -Name $_.Name -OriginalName $_.OriginalName
-            if ($Parameter.OriginalName) {
+            if ($_.OriginalName) {
                 $Parameter.OriginalName = $_.OriginalName
             }
-            if ($Parameter.OriginalPosition) {
+            if ($_.OriginalPosition) {
                 $Parameter.OriginalPosition = $_.OriginalPosition
             }
-            if ($Parameter.Position) {
+            if ($_.Position) {
                 $Parameter.Position = $_.Position
             }
-            if ($Parameter.OriginalText) {
+            if ($_.OriginalText) {
                 $Parameter.OriginalText = $_.OriginalText
             }
-            if ($Parameter.Description) {
+            if ($_.Description) {
                 $Parameter.Description = $_.Description
             }
-            if ($Parameter.DefaultValue) {
+            if ($_.DefaultValue) {
                 $Parameter.DefaultValue = $_.DefaultValue
             }
-            if ($Parameter.DefaultValue) {
+            if ($_.DefaultValue) {
                 $Parameter.DefaultMissingValue = $_.DefaultMissingValue
             }
-            if ($Parameter.ApplyToExecutable) {
+            if ($_.ApplyToExecutable) {
                 $Parameter.ApplyToExecutable = $_.ApplyToExecutable
             }
-            if ($Parameter.AdditionalParameterAttributes) {
+            if ($_.AdditionalParameterAttributes) {
                 $Parameter.AdditionalParameterAttributes = $_.AdditionalParameterAttributes
             }
-            if ($Parameter.Mandatory) {
+            if ($_.Mandatory) {
                 $Parameter.Mandatory = $_.Mandatory
             }
-            if ($Parameter.Aliases) {
+            if ($_.Aliases) {
                 $Parameter.Aliases = $_.Aliases
             }
-            if ($Parameter.ValueFromPipeline) {
+            if ($_.ValueFromPipeline) {
                 $Parameter.ValueFromPipeline = $_.ValueFromPipeline
             }
-            if ($Parameter.ValueFromPipelineByPropertyName) {
+            if ($_.ValueFromPipelineByPropertyName) {
                 $Parameter.ValueFromPipelineByPropertyName = $_.ValueFromPipelineByPropertyName
             }
-            if ($Parameter.ValueFromRemainingArguments) {
+            if ($_.ValueFromRemainingArguments) {
                 $Parameter.ValueFromRemainingArguments = $_.ValueFromRemainingArguments
             }
-            if ($Parameter.NoGap) {
+            if ($_.NoGap) {
                 $Parameter.NoGap = $_.NoGap
             }
             $Parameter

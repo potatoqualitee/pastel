@@ -14,10 +14,10 @@ Install-Module pastel
 
 # Commands
 
-## Get-PastelColorDetail
+## Get-PastelColor
 
 ```powershell
-Get-PastelColorDetail [[-Color] <string>]
+Get-PastelColor [[-Color] <string>]
 ```
 
 # Contributing
@@ -30,7 +30,7 @@ For example, the `Get-LogonSession` cmdlet is defined using this hashtable.
 
 @{
     Verb                    = "Get"
-    Noun                    = "PastelColorDetail"
+    Noun                    = "PastelColor"
     OriginalName            = "pastel"
     OriginalCommandElements = "color"
     Synopsis                = "Get information about a color."
@@ -39,14 +39,14 @@ For example, the `Get-LogonSession` cmdlet is defined using this hashtable.
         ParameterType                   = "string"
         Name                            = "Color"
         Description                     = "Show and display some information about the given color(s)."
-        Mandatory                       = "True"
-        ValueFromPipeline               = "True"
-        ValueFromPipelineByPropertyName = "True"
+        Mandatory                       = $true
+        ValueFromPipeline               = $true
+        ValueFromPipelineByPropertyName = $true
         Position                        = 0
         ParameterSetName                = "Default"
     }
     Examples = @{
-        Command         = "Get-PastelColorDetail -Color blue"
+        Command         = "Get-PastelColor -Color blue"
         OriginalCommand = "pastel color blue"
         Description     = "Show and display some information about the given color(s)"
     }
