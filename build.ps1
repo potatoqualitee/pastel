@@ -43,22 +43,52 @@ $Commands = Get-ChildItem "$PSScriptRoot\src" | ForEach-Object {
 
     if ($Definition.Parameters) {
         $Command.Parameters = $Definition.Parameters | ForEach-Object {
-            $Parameter = New-ParameterInfo -Name $_.Name -OriginalName $_.OriginalName 
-            $Parameter.OriginalName = $_.OriginalName
-            $Parameter.OriginalPosition = $_.OriginalPosition
-            $Parameter.Position = $_.Position
-            $Parameter.OriginalText = $_.OriginalText
-            $Parameter.Description = $_.Description
-            $Parameter.DefaultValue = $_.DefaultValue
-            $Parameter.DefaultMissingValue = $_.DefaultMissingValue
-            $Parameter.ApplyToExecutable = $_.ApplyToExecutable
-            $Parameter.AdditionalParameterAttributes = $_.AdditionalParameterAttributes
-            $Parameter.Mandatory = $_.Mandatory
-            $Parameter.Aliases = $_.Aliases
-            $Parameter.ValueFromPipeline = $_.ValueFromPipeline
-            $Parameter.ValueFromPipelineByPropertyName = $_.ValueFromPipelineByPropertyName
-            $Parameter.ValueFromRemainingArguments = $_.ValueFromRemainingArguments
-            $Parameter.NoGap = $_.NoGap
+            $Parameter = New-ParameterInfo -Name $_.Name -OriginalName $_.OriginalName
+            if ($_.OriginalName) {
+                $Parameter.OriginalName = $_.OriginalName
+            }
+            if ($_.OriginalPosition) {
+                $Parameter.OriginalPosition = $_.OriginalPosition
+            }
+            if ($_.Position) {
+                $Parameter.Position = $_.Position
+            }
+            if ($_.OriginalText) {
+                $Parameter.OriginalText = $_.OriginalText
+            }
+            if ($_.Description) {
+                $Parameter.Description = $_.Description
+            }
+            if ($_.DefaultValue) {
+                $Parameter.DefaultValue = $_.DefaultValue
+            }
+            if ($_.DefaultValue) {
+                $Parameter.DefaultMissingValue = $_.DefaultMissingValue
+            }
+            if ($_.ApplyToExecutable) {
+                $Parameter.ApplyToExecutable = $_.ApplyToExecutable
+            }
+            if ($_.AdditionalParameterAttributes) {
+                $Parameter.AdditionalParameterAttributes = $_.AdditionalParameterAttributes
+            }
+            if ($_.Mandatory) {
+                $Parameter.Mandatory = $_.Mandatory
+            }
+            if ($_.Aliases) {
+                $Parameter.Aliases = $_.Aliases
+            }
+            if ($_.ValueFromPipeline) {
+                $Parameter.ValueFromPipeline = $_.ValueFromPipeline
+            }
+            if ($_.ValueFromPipelineByPropertyName) {
+                $Parameter.ValueFromPipelineByPropertyName = $_.ValueFromPipelineByPropertyName
+            }
+            if ($_.ValueFromRemainingArguments) {
+                $Parameter.ValueFromRemainingArguments = $_.ValueFromRemainingArguments
+            }
+            if ($_.NoGap) {
+                $Parameter.NoGap = $_.NoGap
+            }
             $Parameter
         }
     }
@@ -91,7 +121,8 @@ $oldblock = [regex]::Escape('if ( $__handlerInfo.StreamOutput ) {
         else {
             $result = & "pastel" $__commandArgs
             & $__handler $result
-        }').Replace('\n','\r\n')
+        }')
+
 $code = $code -Replace $oldblock, 'REPLACEHERE'
 $code.Replace('REPLACEHERE', 'if ( $__handlerInfo.StreamOutput ) {
             & "pastel" $__commandArgs | & $__handler
