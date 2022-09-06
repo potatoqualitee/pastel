@@ -18,6 +18,7 @@
         AdditionalParameterAttributes   = '[ValidateSet("rgb", "rgb-float", "hex", "hsl", "hsl-hue", "hsl-saturation", "hsl-lightness", "lch", "lch-lightness", "lch-chroma", "lch-hue", "lab", "lab-a", "lab-b", "luminance", "brightness", "ansi-8bit", "ansi-24bit", "ansi-8bit-escapecode", "ansi-24bit-escapecode", "cmyk", "name")]'
         ValueFromPipelineByPropertyName = $false
         Mandatory                       = $false
+        DefaultValue                    = "hex"
         DefaultMissingValue             = "hex"
         Position                        = 0
         OriginalPosition                = 0
