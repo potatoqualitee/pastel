@@ -1,18 +1,20 @@
 @{
-    Verb                    = "Show"
-    Noun                    = "PastelGradient"
+    Verb                    = "Invoke"
+    Noun                    = "PastelColorMix"
     OriginalName            = "pastel"
-    OriginalCommandElements = "gradient"
-    Synopsis                = "Generate a sequence of colors that interpolates between the specified colors. The interpolation is performed in the specified color space."
-    Description             = "Generate a sequence of colors that interpolates between the specified colors. The interpolation is performed in the specified color space."
+    OriginalCommandElements = "mix"
+    Synopsis                = "Create new colors by interpolating between two colors in the given colorspace"
+    Description             = "Create new colors by interpolating between two colors in the given colorspace"
     Parameters              = 
     @{
-        ParameterType                   = "int"
-        Name                            = "Number"
-        OriginalName                    = '--number'
-        Description                     = "Number of colors to generate"
+        ParameterType                   = "decimal"
+        Name                            = "fraction"
+        OriginalName                    = '--fraction'
+        Description                     = "The number between 0.0 and 1.0 determining how much to mix in from the base color. Default is 0.5"
         ValueFromPipeline               = $false
         ValueFromPipelineByPropertyName = $true
+        Default                         = "0.5"
+        DefaultMissingValue             = "0.5"
         Position                        = 0
         OriginalPosition                = 0
         ParameterSetName                = "Default"
@@ -35,7 +37,7 @@
         ParameterType                   = "string"
         Name                            = "Color1"
         OriginalName                    = ''
-        Description                     = "Color stops in the color gradient. Colors can be specified in many different formats, such as #RRGGBB, RRGGBB, #RGB,
+        Description                     = "The base color which will be mixed with the other colors. Colors can be specified in many different formats, such as #RRGGBB, RRGGBB, #RGB,
             'rgb(…, …, …)', 'hsl(…, …, …)', 'gray(…)' or simply by the name of the color. The
             identifier '-' can be used to read a single color from standard input. Also, the special            identifier 'pick' can be used to run an external color picker to choose a color. If no
             color argument is specified, colors will be read from standard input.
@@ -84,12 +86,12 @@
         ParameterSetName                = "Default"
     }
     Examples                = @{
-        Command         = "Show-PastelGradient -Number 5 -ColorSpace HSL -Color1 '#ffffcc' -Color2 '#fd8d3c'"
-        OriginalCommand = "pastel gradient --colorspace=HSL ffffcc fd8d3c"
+        Command         = "Invoke-PastelColorMix -ColorSpace RGB -Color1 red -Color2 blue"
+        OriginalCommand = "pastel mix --colorspace=RGB red blue"
         Description     = "Generate a sequence of colors that interpolates between ffffcc and fd8d3c."
     },
     @{
-        Command         = "Show-PastelGradient -ColorSpace RGB ffffcc fd8d3c"
+        Command         = "Invoke-PastelColorMix -ColorSpace RGB ffffcc fd8d3c"
         OriginalCommand = "pastel gradient --colorspace=RGB ffffcc fd8d3c"
         Description     = "Generate a sequence of colors that interpolates between ffffcc and fd8d3c."
     }

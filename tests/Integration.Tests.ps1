@@ -62,3 +62,9 @@ Describe "Show-PastelGradient" {
         (Show-PastelGradient -ColorSpace RGB -Color1 ffffcc -Color2 fd8d3c -Number 3 | Measure-Object).Count | Should -Be 3
     }
 }
+
+Describe "Invoke-PastelColorMix" {
+    It "should work" {
+        Invoke-PastelColorMix -ColorSpace RGB -Color1 red -Color2 blue | Should -Not -BeNullOrEmpty
+    }
+}
