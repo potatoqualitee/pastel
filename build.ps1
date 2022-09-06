@@ -123,7 +123,10 @@ $oldblock = [regex]::Escape('if ( $__handlerInfo.StreamOutput ) {
             & $__handler $result
         }')
 
+# Windows line breaks
 $code = $code -Replace $oldblock, 'REPLACEHERE'
+# Linux line breaks
+$code = $code.Replace("\r\n", "\n") -Replace $oldblock.Replace("\r\n", "\n"), 'REPLACEHERE'
 $code.Replace('REPLACEHERE', 'if ( $__handlerInfo.StreamOutput ) {
             & "pastel" $__commandArgs | & $__handler
         } elseif ($__handlerInfo.Handler) {
@@ -145,7 +148,28 @@ $code.Replace('REPLACEHERE', 'if ( $__handlerInfo.StreamOutput ) {
     else {
         $Env:PATH += ";$PSScriptRoot\bin\win"
     }
-}' | Add-Content -Path (Join-Path $module "pastel.psm1")
+}
+
+if (-not (Get-Command -ErrorAction Ignore "Pipette")) {
+    if ($isLinux) {
+        if ($Env:PATH -notmatch "$PSScriptRoot/bin/linux") {
+            $Env:PATH += ":$PSScriptRoot/bin/linux"
+        }
+        chmod +x "$PSScriptRoot/bin/linux/Pipette"
+    }
+    elseif ($isMacOS) {
+        if ($Env:PATH -notmatch "$PSScriptRoot/bin/mac") {
+            $Env:PATH += ":$PSScriptRoot/bin/mac"
+        }
+        chmod +x -R "$PSScriptRoot/bin/mac/Pipette.app"
+    }
+    else {
+        if ($Env:PATH -notmatch "$PSScriptRoot\bin\win") {
+            $Env:PATH += ";$PSScriptRoot\bin\win"
+        }
+    }
+}
+' | Add-Content -Path (Join-Path $module "pastel.psm1")
 
 $ManifestInfo = @{
     ModuleVersion = $Version
