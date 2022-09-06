@@ -44,7 +44,7 @@ Write-PastelColoredText
 
 Commands are defined in the [src](./src) directory. Commands are defined by hashtables that match the Crescendo JSON format. 
 
-For example, the `Get-LogonSession` cmdlet is defined using this hashtable. 
+For example, the `Get-PastelColor` cmdlet is defined using this hashtable. 
 
 ```powershell
 @{
