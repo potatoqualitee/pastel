@@ -1,42 +1,26 @@
 @{
-    Verb                    = "Invoke"
-    Noun                    = "PastelColorSort"
+    Verb                    = "Format"
+    Noun                    = "PastelColor"
     OriginalName            = "pastel"
-    OriginalCommandElements = "sort-by"
-    Synopsis                = "Sort colors by the given property"
-    Description             = "Sort colors by the given property"
+    OriginalCommandElements = "format"
+    Synopsis                = "Convert the given color(s) to a specific format"
+    Description             = "Convert the given color(s) to a specific format"
     Parameters              = 
     @{
-        ParameterType                   = "switch"
-        Name                            = "Reverse"
-        OriginalName                    = '--reverse'
-        Description                     = "Reverse the sort order"
-        ValueFromPipeline               = $false
-        ValueFromPipelineByPropertyName = $true
+        ParameterType                   = "string"
+        Name                            = "Type"
+        Description                     = "Output format type. Note that the 'ansi-*-escapecode' formats print ansi escape sequences to the terminal that will not be visible unless something else is printed in addition.
+
+        [default: hex]
+        [possible values: rgb, rgb-float, hex, hsl, hsl-hue, hsl-saturation, hsl-lightness, lch,
+        lch-lightness, lch-chroma, lch-hue, lab, lab-a, lab-b, luminance, brightness, ansi-8bit,
+        ansi-24bit, ansi-8bit-escapecode, ansi-24bit-escapecode, cmyk, name]"
+        AdditionalParameterAttributes   = '[ValidateSet("rgb", "rgb-float", "hex", "hsl", "hsl-hue", "hsl-saturation", "hsl-lightness", "lch", "lch-lightness", "lch-chroma", "lch-hue", "lab", "lab-a", "lab-b", "luminance", "brightness", "ansi-8bit", "ansi-24bit", "ansi-8bit-escapecode", "ansi-24bit-escapecode", "cmyk", "name")]'
+        ValueFromPipelineByPropertyName = $false
+        Mandatory                       = $false
+        DefaultMissingValue             = "hex"
         Position                        = 0
         OriginalPosition                = 0
-        ParameterSetName                = "Default"
-    },
-    @{
-        ParameterType                   = "switch"
-        Name                            = "Unique"
-        OriginalName                    = '--unique'
-        Description                     = "Remove duplicate colors (equality is determined via RGB values)"
-        ValueFromPipeline               = $false
-        ValueFromPipelineByPropertyName = $true
-        Position                        = 1
-        OriginalPosition                = 1
-        ParameterSetName                = "Default"
-    },
-    @{
-        ParameterType                   = "string"
-        Name                            = "OrderBy"
-        Description                     = "Sort order [default: hue] [possible values: brightness, luminance, hue, chroma, random]"
-        AdditionalParameterAttributes   = '[ValidateSet("brightness", "luminance", "hue", "chroma", "random")]'
-        ValueFromPipelineByPropertyName = $true
-        Mandatory                       = $true
-        Position                        = 2
-        OriginalPosition                = 2
         ParameterSetName                = "Default"
     },
     @{
@@ -60,23 +44,23 @@
               - 'hsla(210, 14.3%, 53.3%, 50%)'"
         ValueFromPipeline               = $true
         ValueFromPipelineByPropertyName = $true
-        Position                        = 3
-        OriginalPosition                = 3
+        Position                        = 1
+        OriginalPosition                = 1
         Mandatory                       = $true
         ParameterSetName                = "Default"
     }
     Examples                = @{
-        Command         = "Invoke-PastelColorSort -Order hue -Color white black"
+        Command         = "Format-PastelColor -Order hue -Color white black"
         OriginalCommand = "pastel sort-by hue white black"
         Description     = "Sort colors by hue"
     },
     @{
-        Command         = "Invoke-PastelColorSort -Order chroma -Color 0000ff 'rgba(119, 136, 153, 0.5)'"
+        Command         = "Format-PastelColor -Order chroma -Color 0000ff 'rgba(119, 136, 153, 0.5)'"
         OriginalCommand = "pastel sort-by chroma 0000ff --unique rgba(119, 136, 153, 0.5)"
         Description     = "Sort 0000ff and rgba(119, 136, 153, 0.5) by chroma"
     },
     @{
-        Command         = "Invoke-PastelColorSort -Order luminance -Color red, blue, green"
+        Command         = "Format-PastelColor -Order luminance -Color red, blue, green"
         OriginalCommand = "pastel sort-by luminance red blue green"
         Description     = "Sort red blue and green by luminance"
     }

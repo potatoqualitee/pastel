@@ -15,6 +15,7 @@
         ValueFromPipelineByPropertyName = $true
         AdditionalParameterAttributes   = '[ValidateSet("brightness", "luminance", "hue", "chroma", "random")]'
         Position                        = 0
+        OriginalPosition                = 0
         ParameterSetName                = "Default"
     }
     Examples                = @{

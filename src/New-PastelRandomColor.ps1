@@ -19,6 +19,7 @@
         ValueFromPipelineByPropertyName = $true
         AdditionalParameterAttributes   = '[ValidateSet("vivid", "rgb", "gray", "lch_hue")]'
         Position                        = 0
+        OriginalPosition                = 0
         ParameterSetName                = "Default"
     },
     @{
@@ -29,6 +30,7 @@
         ValueFromPipeline               = $false
         ValueFromPipelineByPropertyName = $true
         Position                        = 1
+        OriginalPosition                = 1
         ParameterSetName                = "Default"
     }
     Examples                = @{
