@@ -44,6 +44,10 @@ $Commands = Get-ChildItem "$PSScriptRoot\src" | ForEach-Object {
     if ($Definition.Parameters) {
         $Command.Parameters = $Definition.Parameters | ForEach-Object {
             $Parameter = New-ParameterInfo -Name $_.Name -OriginalName $_.OriginalName
+            
+            if ($_.ParameterType) {
+                $Parameter.ParameterType = $_.ParameterType
+            }
             if ($_.OriginalName) {
                 $Parameter.OriginalName = $_.OriginalName
             }

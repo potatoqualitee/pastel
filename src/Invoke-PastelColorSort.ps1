@@ -34,7 +34,9 @@
         Description                     = "Sort order [default: hue] [possible values: brightness, luminance, hue, chroma, random]"
         AdditionalParameterAttributes   = '[ValidateSet("brightness", "luminance", "hue", "chroma", "random")]'
         ValueFromPipelineByPropertyName = $true
-        Mandatory                       = $true
+        Mandatory                       = $false
+        DefaultValue                    = "hue"
+        DefaultMissingValue             = "hue"
         Position                        = 2
         OriginalPosition                = 2
         ParameterSetName                = "Default"

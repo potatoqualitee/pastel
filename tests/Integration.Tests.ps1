@@ -36,6 +36,12 @@ Describe "Get-PastelDistinctColor" {
     }
 }
 
+Describe "Invoke-PastelColorSort" {
+    It "should work" {
+        (Invoke-PastelColorSort -Order luminance -Color red, blue, green | Measure-Object).Count | Should -Be 3
+    }
+}
+
 Describe "Format-PastelColor" {
     It "output hex by default" {
         Format-PastelColor -Color white | Should -Match "ffffff"
