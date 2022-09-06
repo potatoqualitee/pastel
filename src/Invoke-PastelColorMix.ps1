@@ -3,7 +3,7 @@
     Noun                    = "PastelColorMix"
     OriginalName            = "pastel"
     OriginalCommandElements = "mix"
-    Synopsis                = "Create new colors by interpolating between two colors in the given colorspace"
+    Synopsis                = "Mix two colors in the given colorspace"
     Description             = "Create new colors by interpolating between two colors in the given colorspace"
     Parameters              = 
     @{
@@ -36,11 +36,7 @@
     @{
         ParameterType                   = "string"
         Name                            = "Color1"
-        OriginalName                    = ''
-        Description                     = "The base color which will be mixed with the other colors. Colors can be specified in many different formats, such as #RRGGBB, RRGGBB, #RGB,
-            'rgb(…, …, …)', 'hsl(…, …, …)', 'gray(…)' or simply by the name of the color. The
-            identifier '-' can be used to read a single color from standard input. Also, the special            identifier 'pick' can be used to run an external color picker to choose a color. If no
-            color argument is specified, colors will be read from standard input.
+        Description                     = "Colors can be specified in many different formats, such as #RRGGBB, RRGGBB, #RGB, 'rgb(…, …, …)', 'hsl(…, …, …)', 'gray(…)' or simply by the name of the color. The identifier '-' can be used to read a single color from standard input. Also, the special identifier 'pick' can be used to run an external color picker to choose a color. If no color argument is specified, colors will be read from standard input.
             Examples (all of these specify the same color):
               - lightslategray
               - '#778899'
@@ -62,11 +58,7 @@
     @{
         ParameterType                   = "string"
         Name                            = "Color2"
-        OriginalName                    = ''
-        Description                     = "Color stops in the color gradient. Colors can be specified in many different formats, such as #RRGGBB, RRGGBB, #RGB,
-            'rgb(…, …, …)', 'hsl(…, …, …)', 'gray(…)' or simply by the name of the color. The
-            identifier '-' can be used to read a single color from standard input. Also, the special            identifier 'pick' can be used to run an external color picker to choose a color. If no
-            color argument is specified, colors will be read from standard input.
+        Description                     = "Colors can be specified in many different formats, such as #RRGGBB, RRGGBB, #RGB, 'rgb(…, …, …)', 'hsl(…, …, …)', 'gray(…)' or simply by the name of the color. The identifier '-' can be used to read a single color from standard input. Also, the special identifier 'pick' can be used to run an external color picker to choose a color. If no color argument is specified, colors will be read from standard input.
             Examples (all of these specify the same color):
               - lightslategray
               - '#778899'

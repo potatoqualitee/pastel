@@ -1,30 +1,28 @@
 @{
-    Verb                    = "Get"
-    Noun                    = "PastelDistinctColor"
+    Verb                    = "Edit"
+    Noun                    = "PastelColorProperty"
     OriginalName            = "pastel"
-    OriginalCommandElements = "distinct"
-    Synopsis                = "Generate a set of visually distinct color"
-    Description             = "Generate a set of visually distinct colors by maximizing the perceived color difference between pairs of colors.
-
-The default parameters for the optimization procedure (simulated annealing) should work fine for up to 10-20 colors."
+    OriginalCommandElements = "set"
+    Synopsis                = "Set the given property to a specific value"
+    Description             = "Set the given property to a specific value"
     Parameters              = 
     @{
         ParameterType                   = "string"
-        Name                            = "Metric"
-        OriginalName                    = '--metric'
-        Description                     = "Distance metric to compute mutual color distances. The CIEDE2000 is more accurate, but also much slower."
+        Name                            = "Property"
+        Description                     = "The property that should be changed [possible values: lightness, hue, chroma, lab-a, lab-b, red, green, blue, hsl-hue, hsl-saturation, hsl-lightness]"
+        AdditionalParameterAttributes   = '[ValidateSet("lightness", "hue", "chroma", "lab-a", "lab-b", "red", "green", "blue", "hsl-hue", "hsl-saturation", "hsl-lightness")]'
         ValueFromPipeline               = $false
         ValueFromPipelineByPropertyName = $true
-        AdditionalParameterAttributes   = '[ValidateSet("CIEDE2000", "CIE76")]'
+        Mandatory                       = $true
         Position                        = 0
         OriginalPosition                = 0
         ParameterSetName                = "Default"
     },
     @{
-        ParameterType                   = "int"
-        Name                            = "Count"
-        OriginalName                    = ''
-        Description                     = "Number of distinct colors in the set. Default is 10."
+        ParameterType                   = "decimal"
+        Aliases                         = "Value"
+        Name                            = "NewValue"
+        Description                     = "The new numerical value of the property"
         ValueFromPipeline               = $false
         ValueFromPipelineByPropertyName = $true
         Position                        = 1
@@ -32,7 +30,7 @@ The default parameters for the optimization procedure (simulated annealing) shou
         ParameterSetName                = "Default"
     },
     @{
-        ParameterType                   = "string"
+        ParameterType                   = "string[]"
         Name                            = "Color"
         Description                     = "Colors can be specified in many different formats, such as #RRGGBB, RRGGBB, #RGB, 'rgb(…, …, …)', 'hsl(…, …, …)', 'gray(…)' or simply by the name of the color. The identifier '-' can be used to read a single color from standard input. Also, the special identifier 'pick' can be used to run an external color picker to choose a color. If no color argument is specified, colors will be read from standard input.
             Examples (all of these specify the same color):
@@ -54,14 +52,14 @@ The default parameters for the optimization procedure (simulated annealing) shou
         ParameterSetName                = "Default"
     }
     Examples                = @{
-        Command         = "Get-PastelDistinctColor"
-        OriginalCommand = "pastel distinct"
-        Description     = "Generates a list of distinct colors"
+        Command         = "Edit-PastelColorProperty -Property lightness -Value 1 -Color red"
+        OriginalCommand = "pastel set lightness 1 red"
+        Description     = "Increase the lightness of the color red by 1"
     },
     @{
-        Command         = "Get-PastelDistinctColor -Color lightslategray -Count 5"
-        OriginalCommand = "pastel distinct --color lightslategray --count 5"
-        Description     = "Generate a list of 5 vivid colors"
+        Command         = "Edit-PastelColorProperty -Property hue -Value 10 -Color f5ee92"
+        OriginalCommand = "pastel set hue 10 f5ee92"
+        Description     = "Increases the hue of the color f5ee92 by 10"
     }
     OutputHandlers          = @{
         ParameterSetName = "Default"

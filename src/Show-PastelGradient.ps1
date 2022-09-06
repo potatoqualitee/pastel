@@ -3,7 +3,7 @@
     Noun                    = "PastelGradient"
     OriginalName            = "pastel"
     OriginalCommandElements = "gradient"
-    Synopsis                = "Generate a sequence of colors that interpolates between the specified colors. The interpolation is performed in the specified color space."
+    Synopsis                = "Generate an interpolating sequence of colors"
     Description             = "Generate a sequence of colors that interpolates between the specified colors. The interpolation is performed in the specified color space."
     Parameters              = 
     @{
@@ -34,11 +34,7 @@
     @{
         ParameterType                   = "string"
         Name                            = "Color1"
-        OriginalName                    = ''
-        Description                     = "Color stops in the color gradient. Colors can be specified in many different formats, such as #RRGGBB, RRGGBB, #RGB,
-            'rgb(…, …, …)', 'hsl(…, …, …)', 'gray(…)' or simply by the name of the color. The
-            identifier '-' can be used to read a single color from standard input. Also, the special            identifier 'pick' can be used to run an external color picker to choose a color. If no
-            color argument is specified, colors will be read from standard input.
+        Description                     = "Colors can be specified in many different formats, such as #RRGGBB, RRGGBB, #RGB, 'rgb(…, …, …)', 'hsl(…, …, …)', 'gray(…)' or simply by the name of the color. The identifier '-' can be used to read a single color from standard input. Also, the special identifier 'pick' can be used to run an external color picker to choose a color. If no color argument is specified, colors will be read from standard input.
             Examples (all of these specify the same color):
               - lightslategray
               - '#778899'
@@ -60,11 +56,7 @@
     @{
         ParameterType                   = "string"
         Name                            = "Color2"
-        OriginalName                    = ''
-        Description                     = "Color stops in the color gradient. Colors can be specified in many different formats, such as #RRGGBB, RRGGBB, #RGB,
-            'rgb(…, …, …)', 'hsl(…, …, …)', 'gray(…)' or simply by the name of the color. The
-            identifier '-' can be used to read a single color from standard input. Also, the special            identifier 'pick' can be used to run an external color picker to choose a color. If no
-            color argument is specified, colors will be read from standard input.
+        Description                     = "Colors can be specified in many different formats, such as #RRGGBB, RRGGBB, #RGB, 'rgb(…, …, …)', 'hsl(…, …, …)', 'gray(…)' or simply by the name of the color. The identifier '-' can be used to read a single color from standard input. Also, the special identifier 'pick' can be used to run an external color picker to choose a color. If no color argument is specified, colors will be read from standard input.
             Examples (all of these specify the same color):
               - lightslategray
               - '#778899'

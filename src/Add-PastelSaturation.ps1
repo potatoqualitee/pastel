@@ -1,20 +1,17 @@
 @{
-    Verb                    = "ConvertTo"
-    Noun                    = "PastelColorBlind"
+    Verb                    = "Add"
+    Noun                    = "PastelSaturation"
     OriginalName            = "pastel"
-    OriginalCommandElements = "colorblind"
-    Synopsis                = "Simulate a color under a certain colorblindness profile"
-    Description             = "Convert the given color to how it would look to a person with protanopia, deuteranopia, or tritanopia"
-    Parameters              = 
-    @{
-        ParameterType                   = "string"
-        Name                            = "Type"
-        Description                     = "The type of colorblindness that should be simulated (protanopia, deuteranopia, tritanopia)"
-        AdditionalParameterAttributes   = '[ValidateSet("prot", "deuter", "trit")]'
-        ValueFromPipelineByPropertyName = $false
-        Mandatory                       = $false
-        DefaultValue                    = "prot"
-        DefaultMissingValue             = "prot"
+    OriginalCommandElements = "saturate"
+    Synopsis                = "Increase color saturation by a specified amount"
+    Description             = "Increase the saturation of a color by adding a certain amount to the HSL saturation channel. If the amount is negative, the color will be desaturated instead."
+    Parameters              = @{
+        ParameterType                   = "decimal"
+        Name                            = "Amount"
+        Description                     = "Amount of saturation to add (number between 0.0 and 1.0)"
+        ValueFromPipeline               = $false
+        ValueFromPipelineByPropertyName = $true
+        AdditionalParameterAttributes   = '[ValidateRange(0, 1)]'
         Position                        = 0
         OriginalPosition                = 0
         ParameterSetName                = "Default"
@@ -35,17 +32,17 @@
               - '#77889980'
               - 'rgba(119, 136, 153, 0.5)'
               - 'hsla(210, 14.3%, 53.3%, 50%)'"
+        Mandatory                       = $true
         ValueFromPipeline               = $true
         ValueFromPipelineByPropertyName = $true
         Position                        = 1
         OriginalPosition                = 1
-        Mandatory                       = $true
         ParameterSetName                = "Default"
     }
     Examples                = @{
-        Command         = "ConvertTo-PastelColorBlind -Type prot -Color '#FF0000', '#00FF00', '#0000FF'"
-        OriginalCommand = "pastel colorblind prot #FF0000 #00FF00 #0000FF"
-        Description     = "Simulate 3 colors to the protanopia colorblindness"
+        Command         = "Add-PastelSaturation -Amount 0.1 -Color red"
+        OriginalCommand = "pastel saturate 0.1 red"
+        Description     = "Increase the saturation of the color red by 10%"
     }
     OutputHandlers          = @{
         ParameterSetName = "Default"

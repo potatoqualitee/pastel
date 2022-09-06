@@ -1,24 +1,11 @@
 @{
     Verb                    = "ConvertTo"
-    Noun                    = "PastelColorBlind"
+    Noun                    = "PastelGrayTone"
     OriginalName            = "pastel"
-    OriginalCommandElements = "colorblind"
-    Synopsis                = "Simulate a color under a certain colorblindness profile"
-    Description             = "Convert the given color to how it would look to a person with protanopia, deuteranopia, or tritanopia"
+    OriginalCommandElements = "to-gray"
+    Synopsis                = "Completely desaturate a color (preserving luminance)"
+    Description             = "Completely desaturate the given color while preserving the luminance."
     Parameters              = 
-    @{
-        ParameterType                   = "string"
-        Name                            = "Type"
-        Description                     = "The type of colorblindness that should be simulated (protanopia, deuteranopia, tritanopia)"
-        AdditionalParameterAttributes   = '[ValidateSet("prot", "deuter", "trit")]'
-        ValueFromPipelineByPropertyName = $false
-        Mandatory                       = $false
-        DefaultValue                    = "prot"
-        DefaultMissingValue             = "prot"
-        Position                        = 0
-        OriginalPosition                = 0
-        ParameterSetName                = "Default"
-    },
     @{
         ParameterType                   = "string[]"
         Name                            = "Color"
@@ -35,17 +22,17 @@
               - '#77889980'
               - 'rgba(119, 136, 153, 0.5)'
               - 'hsla(210, 14.3%, 53.3%, 50%)'"
+        Mandatory                       = $true
         ValueFromPipeline               = $true
         ValueFromPipelineByPropertyName = $true
         Position                        = 1
         OriginalPosition                = 1
-        Mandatory                       = $true
         ParameterSetName                = "Default"
     }
     Examples                = @{
-        Command         = "ConvertTo-PastelColorBlind -Type prot -Color '#FF0000', '#00FF00', '#0000FF'"
-        OriginalCommand = "pastel colorblind prot #FF0000 #00FF00 #0000FF"
-        Description     = "Simulate 3 colors to the protanopia colorblindness"
+        Command         = "ConvertTo-PastelGrayTone -Color blue"
+        OriginalCommand = "pastel to-gray blue"
+        Description     = "Converts the color blue to a gray tone"
     }
     OutputHandlers          = @{
         ParameterSetName = "Default"

@@ -1,30 +1,16 @@
 @{
-    Verb                    = "Get"
-    Noun                    = "PastelDistinctColor"
+    Verb                    = "Invoke"
+    Noun                    = "PastelRotateColor"
     OriginalName            = "pastel"
-    OriginalCommandElements = "distinct"
-    Synopsis                = "Generate a set of visually distinct color"
-    Description             = "Generate a set of visually distinct colors by maximizing the perceived color difference between pairs of colors.
-
-The default parameters for the optimization procedure (simulated annealing) should work fine for up to 10-20 colors."
+    OriginalCommandElements = "rotate"
+    Synopsis                = "Rotate the hue channel by the specified angle"
+    Description             = "Rotate the HSL hue channel of a color by the specified angle (in degrees). A rotation by 180° returns the complementary color. A rotation by 360° returns to the original color."
     Parameters              = 
     @{
-        ParameterType                   = "string"
-        Name                            = "Metric"
-        OriginalName                    = '--metric'
-        Description                     = "Distance metric to compute mutual color distances. The CIEDE2000 is more accurate, but also much slower."
-        ValueFromPipeline               = $false
-        ValueFromPipelineByPropertyName = $true
-        AdditionalParameterAttributes   = '[ValidateSet("CIEDE2000", "CIE76")]'
-        Position                        = 0
-        OriginalPosition                = 0
-        ParameterSetName                = "Default"
-    },
-    @{
-        ParameterType                   = "int"
-        Name                            = "Count"
-        OriginalName                    = ''
-        Description                     = "Number of distinct colors in the set. Default is 10."
+        ParameterType                   = "decimal"
+        Aliases                         = "Value"
+        Name                            = "Degree"
+        Description                     = "Angle by which to rotate (in degrees, can be negative)"
         ValueFromPipeline               = $false
         ValueFromPipelineByPropertyName = $true
         Position                        = 1
@@ -32,7 +18,7 @@ The default parameters for the optimization procedure (simulated annealing) shou
         ParameterSetName                = "Default"
     },
     @{
-        ParameterType                   = "string"
+        ParameterType                   = "string[]"
         Name                            = "Color"
         Description                     = "Colors can be specified in many different formats, such as #RRGGBB, RRGGBB, #RGB, 'rgb(…, …, …)', 'hsl(…, …, …)', 'gray(…)' or simply by the name of the color. The identifier '-' can be used to read a single color from standard input. Also, the special identifier 'pick' can be used to run an external color picker to choose a color. If no color argument is specified, colors will be read from standard input.
             Examples (all of these specify the same color):
@@ -54,14 +40,9 @@ The default parameters for the optimization procedure (simulated annealing) shou
         ParameterSetName                = "Default"
     }
     Examples                = @{
-        Command         = "Get-PastelDistinctColor"
-        OriginalCommand = "pastel distinct"
-        Description     = "Generates a list of distinct colors"
-    },
-    @{
-        Command         = "Get-PastelDistinctColor -Color lightslategray -Count 5"
-        OriginalCommand = "pastel distinct --color lightslategray --count 5"
-        Description     = "Generate a list of 5 vivid colors"
+        Command         = "Invoke-PastelRotateColor -Degree 180 -Color red"
+        OriginalCommand = "pastel rotate 180 red"
+        Description     = "Rotate the hue of the color red by 180°"
     }
     OutputHandlers          = @{
         ParameterSetName = "Default"

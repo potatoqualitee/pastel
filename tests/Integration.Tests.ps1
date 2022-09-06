@@ -65,12 +65,59 @@ Describe "Show-PastelGradient" {
 
 Describe "Invoke-PastelColorMix" {
     It "should work" {
-        Invoke-PastelColorMix -ColorSpace RGB -Color1 red -Color2 blue | Should -Not -BeNullOrEmpty
+        (Invoke-PastelColorMix -ColorSpace RGB -Color1 red -Color2 blue).Trim() |  Should -Be 'hsl(300,100.0%,25.1%)'
     }
 }
 
 Describe "Invoke-PastelColorMix" {
     It "should work" {
         ConvertTo-PastelColorBlind -Type prot -Color '#FF0000', '#00FF00', '#0000FF' | Should -Not -BeNullOrEmpty
+    }
+}
+
+Describe "Edit-PastelColorProperty" {
+    It "should work" {
+        Edit-PastelColorProperty -Property hue -Value 10 -Color f5ee92 | Should -Not -BeNullOrEmpty
+    }
+}
+
+Describe "Add-PastelSaturation" {
+    It "should work" {
+        Add-PastelSaturation -Amount 0.1 -Color red | Should -Not -BeNullOrEmpty
+    }
+}
+
+Describe "Remove-PastelSaturation" {
+    It "should work" {
+        (Remove-PastelSaturation -Amount 0.1 -Color red).Trim() | Should -Be 'hsl(0,100.0%,50.0%)'
+    }
+}
+Describe "Add-PastelLightness" {
+    It "should work" {
+        Add-PastelLightness -Amount 0.1 -Color red | Should -Not -BeNullOrEmpty
+    }
+}
+
+Describe "Remove-PastelLightness" {
+    It "should work" {
+        Remove-PastelLightness -Amount 0.1 -Color red | Should -Not -BeNullOrEmpty
+    }
+}
+
+Describe "Invoke-PastelRotateColor" {
+    It "should work" {
+        (Invoke-PastelRotateColor -Degree 180 -Color red).Trim() | Should -Be 'hsl(180,100.0%,50.0%)'
+    }
+}
+
+Describe "ConvertTo-PastelGrayTone" {
+    It "should work" {
+        (ConvertTo-PastelGrayTone -Color blue).Trim() | Should -Be 'hsl(240,0.0%,29.8%)'
+    }
+}
+
+Describe "Get-PastelTextColor" {
+    It "should work" {
+        (Get-PastelTextColor -Color blue).Trim() | Should -Be 'hsl(0,0.0%,100.0%)'
     }
 }

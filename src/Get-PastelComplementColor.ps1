@@ -1,24 +1,11 @@
 @{
-    Verb                    = "ConvertTo"
-    Noun                    = "PastelColorBlind"
+    Verb                    = "Get"
+    Noun                    = "PastelComplementColor"
     OriginalName            = "pastel"
-    OriginalCommandElements = "colorblind"
-    Synopsis                = "Simulate a color under a certain colorblindness profile"
-    Description             = "Convert the given color to how it would look to a person with protanopia, deuteranopia, or tritanopia"
-    Parameters              = 
-    @{
-        ParameterType                   = "string"
-        Name                            = "Type"
-        Description                     = "The type of colorblindness that should be simulated (protanopia, deuteranopia, tritanopia)"
-        AdditionalParameterAttributes   = '[ValidateSet("prot", "deuter", "trit")]'
-        ValueFromPipelineByPropertyName = $false
-        Mandatory                       = $false
-        DefaultValue                    = "prot"
-        DefaultMissingValue             = "prot"
-        Position                        = 0
-        OriginalPosition                = 0
-        ParameterSetName                = "Default"
-    },
+    OriginalCommandElements = "complement"
+    Synopsis                = "Get the complementary color (hue rotated by 180°)"
+    Description             = "Compute the complementary color by rotating the HSL hue channel by 180°."
+    Parameters              =
     @{
         ParameterType                   = "string[]"
         Name                            = "Color"
@@ -37,15 +24,14 @@
               - 'hsla(210, 14.3%, 53.3%, 50%)'"
         ValueFromPipeline               = $true
         ValueFromPipelineByPropertyName = $true
-        Position                        = 1
-        OriginalPosition                = 1
-        Mandatory                       = $true
+        Position                        = 0
+        OriginalPosition                = 0
         ParameterSetName                = "Default"
     }
     Examples                = @{
-        Command         = "ConvertTo-PastelColorBlind -Type prot -Color '#FF0000', '#00FF00', '#0000FF'"
-        OriginalCommand = "pastel colorblind prot #FF0000 #00FF00 #0000FF"
-        Description     = "Simulate 3 colors to the protanopia colorblindness"
+        Command         = "Get-PastelComplementColor -Color blue"
+        OriginalCommand = "pastel complement blue"
+        Description     = "Get the complementary color of blue"
     }
     OutputHandlers          = @{
         ParameterSetName = "Default"

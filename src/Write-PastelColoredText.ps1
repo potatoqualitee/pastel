@@ -9,10 +9,7 @@
     @{
         ParameterType                   = "string"
         Name                            = "Color"
-        Description                     = "Colors can be specified in many different formats, such as #RRGGBB, RRGGBB, #RGB,
-            'rgb(…, …, …)', 'hsl(…, …, …)', 'gray(…)' or simply by the name of the color. The
-            identifier '-' can be used to read a single color from standard input. Also, the special            identifier 'pick' can be used to run an external color picker to choose a color. If no
-            color argument is specified, colors will be read from standard input.
+        Description                     = "Colors can be specified in many different formats, such as #RRGGBB, RRGGBB, #RGB, 'rgb(…, …, …)', 'hsl(…, …, …)', 'gray(…)' or simply by the name of the color. The identifier '-' can be used to read a single color from standard input. Also, the special identifier 'pick' can be used to run an external color picker to choose a color. If no color argument is specified, colors will be read from standard input.
             Examples (all of these specify the same color):
               - lightslategray
               - '#778899'

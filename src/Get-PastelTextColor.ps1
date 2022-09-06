@@ -1,11 +1,11 @@
 
 @{
     Verb                    = "Get"
-    Noun                    = "PastelColor"
+    Noun                    = "PastelTextColor"
     OriginalName            = "pastel"
-    OriginalCommandElements = "color"
-    Synopsis                = "Display information about the given color"
-    Description             = "Show and display some information about the given color(s)."
+    OriginalCommandElements = "textcolor"
+    Synopsis                = "Get a readable text color for the given background color"
+    Description             = "Return a readable foreground text color (either black or white) for a given background color. This can also be used in the opposite way, i.e. to create a background color for a given text color."
     Parameters              = @{
         ParameterType                   = "string[]"
         Name                            = "Color"
@@ -29,14 +29,14 @@
         OriginalPosition                = 0
         ParameterSetName                = "Default"
     }
-    Examples = @{
-        Command         = "Get-PastelColor -Color blue"
-        OriginalCommand = "pastel color blue"
-        Description     = "Show and display some information about the given color(s)"
+    Examples                = @{
+        Command         = "Get-PastelTextColor -Color blue"
+        OriginalCommand = "pastel textcolor blue"
+        Description     = "Get a readable text color for the given blue background color"
     }
     OutputHandlers          = @{
         ParameterSetName = "Default"
-        Handler          = {$true}
+        Handler          = { $true }
         HandlerType      = "Inline"
         StreamOutput     = $false
     }
