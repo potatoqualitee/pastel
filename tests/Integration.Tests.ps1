@@ -50,3 +50,9 @@ Describe "Format-PastelColor" {
         Format-PastelColor -Color white -Type luminance | Should -Be "1.000"
     }
 }
+
+Describe "Write-PastelColoredText" {
+    It "should work" {
+        Write-PastelColoredText -Color blue -Text sup -BackgroundColor white | Should -Match "sup"
+    }
+}
