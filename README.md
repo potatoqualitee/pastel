@@ -1,6 +1,9 @@
 # pastel
 
-PowerShell Crescendo module for `pastel`.
+PowerShell Crescendo module for `pastel`. Pastel is pretty and super useful -- I used it in the workflow that created my [PowerShell Universal themes](https://github.com/potatoqualitee/psu-themes).
+
+![image](https://user-images.githubusercontent.com/8278033/188740931-0b877f47-5f2c-49c5-9ecd-d61b37b1a563.png)
+
 
 # Installation 
 
