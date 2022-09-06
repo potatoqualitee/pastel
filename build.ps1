@@ -184,6 +184,7 @@ $ManifestInfo = @{
     Description   = 'PowerShell commands for pastel'
     LicenseUri    = 'https://github.com/potatoqualitee/pastel/blob/main/LICENSE'
     ProjectUri    = 'https://github.com/potatoqualitee/pastel'
+    IconUri       = 'https://raw.githubusercontent.com/potatoqualitee/pastel/main/bin/logo.png'
 }
 
 Update-ModuleManifest -Path (Join-Path $module "pastel.psd1") @ManifestInfo 
