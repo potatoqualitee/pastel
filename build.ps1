@@ -154,7 +154,7 @@ $code.Replace('REPLACEHERE', 'if ( $__handlerInfo.StreamOutput ) {
     }
 }
 
-if (-not (Get-Command -ErrorAction Ignore "Pipette")) {
+if (-not (Get-Command -ErrorAction Ignore "gpick")) {
     if ($isLinux) {
         if ($Env:PATH -notmatch "$PSScriptRoot/bin/linux") {
             $Env:PATH += ":$PSScriptRoot/bin/linux"
@@ -165,10 +165,12 @@ if (-not (Get-Command -ErrorAction Ignore "Pipette")) {
         if ($Env:PATH -notmatch "$PSScriptRoot/bin/mac") {
             $Env:PATH += ":$PSScriptRoot/bin/mac"
         }
-        chmod +x -R "$PSScriptRoot/bin/mac/Pipette.app"
+        chmod +x -R "$PSScriptRoot/bin/mac/gpick.app"
     }
     else {
-        if ($Env:PATH -notmatch "$PSScriptRoot\bin\win") {
+        $newpath = Join-Path -Path $PSScriptRoot -ChildPath bin
+        $newpath = Join-Path -Path $newpath -ChildPath win
+        if ($Env:PATH -notmatch $newpath) {
             $Env:PATH += ";$PSScriptRoot\bin\win"
         }
     }
@@ -186,4 +188,4 @@ $ManifestInfo = @{
 
 Update-ModuleManifest -Path (Join-Path $module "pastel.psd1") @ManifestInfo 
 
-Invoke-Pester -Path "$PSScriptRoot\tests"
+#Invoke-Pester -Path "$PSScriptRoot\tests"
