@@ -68,3 +68,9 @@ Describe "Invoke-PastelColorMix" {
         Invoke-PastelColorMix -ColorSpace RGB -Color1 red -Color2 blue | Should -Not -BeNullOrEmpty
     }
 }
+
+Describe "Invoke-PastelColorMix" {
+    It "should work" {
+        ConvertTo-PastelColorBlind -Type prot -Color '#FF0000', '#00FF00', '#0000FF' | Should -Not -BeNullOrEmpty
+    }
+}
