@@ -14,6 +14,7 @@
         ValueFromPipeline               = $false
         ValueFromPipelineByPropertyName = $true
         Position                        = 0
+        OriginalPosition                = 0
         ParameterSetName                = "Default"
     },
     @{
@@ -24,6 +25,7 @@
         ValueFromPipeline               = $false
         ValueFromPipelineByPropertyName = $true
         Position                        = 1
+        OriginalPosition                = 1
         ParameterSetName                = "Default"
     },
     @{
@@ -32,8 +34,11 @@
         Description                     = "Sort order [default: hue] [possible values: brightness, luminance, hue, chroma, random]"
         AdditionalParameterAttributes   = '[ValidateSet("brightness", "luminance", "hue", "chroma", "random")]'
         ValueFromPipelineByPropertyName = $true
-        Mandatory                       = $true
+        Mandatory                       = $false
+        DefaultValue                    = "hue"
+        DefaultMissingValue             = "hue"
         Position                        = 2
+        OriginalPosition                = 2
         ParameterSetName                = "Default"
     },
     @{
@@ -58,6 +63,7 @@
         ValueFromPipeline               = $true
         ValueFromPipelineByPropertyName = $true
         Position                        = 3
+        OriginalPosition                = 3
         Mandatory                       = $true
         ParameterSetName                = "Default"
     }

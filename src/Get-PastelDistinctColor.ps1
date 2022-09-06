@@ -17,6 +17,7 @@ The default parameters for the optimization procedure (simulated annealing) shou
         ValueFromPipelineByPropertyName = $true
         AdditionalParameterAttributes   = '[ValidateSet("CIEDE2000", "CIE76")]'
         Position                        = 0
+        OriginalPosition                = 0
         ParameterSetName                = "Default"
     },
     @{
@@ -27,6 +28,7 @@ The default parameters for the optimization procedure (simulated annealing) shou
         ValueFromPipeline               = $false
         ValueFromPipelineByPropertyName = $true
         Position                        = 1
+        OriginalPosition                = 1
         ParameterSetName                = "Default"
     },
     @{
@@ -52,6 +54,7 @@ The default parameters for the optimization procedure (simulated annealing) shou
         ValueFromPipeline               = $true
         ValueFromPipelineByPropertyName = $true
         Position                        = 2
+        OriginalPosition                = 2
         ParameterSetName                = "Default"
     }
     Examples                = @{

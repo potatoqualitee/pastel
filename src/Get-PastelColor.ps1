@@ -14,6 +14,7 @@
         ValueFromPipeline               = $true
         ValueFromPipelineByPropertyName = $true
         Position                        = 0
+        OriginalPosition                = 0
         ParameterSetName                = "Default"
     }
     Examples = @{

@@ -8,13 +8,16 @@
     Parameters              = @{
         ParameterType                   = "string"
         Name                            = "Sort"
-         OriginalName                   = '--sort'
+        OriginalName                    = '--sort'
         Description                     = "Sort order [default: hue] [possible values: brightness, luminance, hue, chroma, random]"
         Mandatory                       = $false
         ValueFromPipeline               = $true
         ValueFromPipelineByPropertyName = $true
+        DefaultValue                    = "hue"
+        DefaultMissingValue             = "hue"
         AdditionalParameterAttributes   = '[ValidateSet("brightness", "luminance", "hue", "chroma", "random")]'
         Position                        = 0
+        OriginalPosition                = 0
         ParameterSetName                = "Default"
     }
     Examples                = @{
