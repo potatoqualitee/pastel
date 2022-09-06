@@ -56,3 +56,9 @@ Describe "Write-PastelColoredText" {
         Write-PastelColoredText -Color blue -Text sup -BackgroundColor white | Should -Match "sup"
     }
 }
+
+Describe "Show-PastelGradient" {
+    It "should work" {
+        (Show-PastelGradient -ColorSpace RGB -Color1 ffffcc -Color2 fd8d3c -Number 3 | Measure-Object).Count | Should -Be 3
+    }
+}

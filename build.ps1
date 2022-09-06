@@ -14,8 +14,8 @@ if (-not $installed) {
     Install-Module Pester -Force -Scope CurrentUser
 }
 
-New-Item $module -ItemType Directory
-New-Item $json -ItemType Directory
+$null = New-Item $module -ItemType Directory
+$null = New-Item $json -ItemType Directory
 
 Copy-Item -Recurse -Path $PSScriptRoot\bin -Destination $module
 
