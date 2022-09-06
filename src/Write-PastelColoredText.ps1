@@ -109,7 +109,7 @@
     },
     @{
         Command         = "Write-PastelColoredText -Color blue -Text sup -BackgroundColor white -Underline -Bold -Italic -Verbose"
-        OriginalCommand = "pastel paint rgb(0, 128, 0) --on white --underline --bold --italic sup"
+        OriginalCommand = "pastel paint 'rgb(0, 128, 0)' --on white --underline --bold --italic sup"
         Description     = "Prints an underlined, bold and italic 'sup' in blue on a white background"
     },
     @{
